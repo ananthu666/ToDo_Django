@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('tasks', include('home.urls')),
     path('register', include('home.urls')),
-    path('home1', include('home.urls')),
+    path('home', include('home.urls')),
     path('logout', include('home.urls')),
     path('task_del/<id>', include('home.urls')),
     path('task_upd/<id>', include('home.urls')),
