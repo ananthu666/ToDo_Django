@@ -63,6 +63,7 @@ def register(request):
 
   # return HttpResponse("This is my home page")
 def login_page(request):
+    context={'success':False}
     if request.method == "POST":
         username = request.POST['reg_username']
         password = request.POST['reg_pwd']
@@ -74,8 +75,8 @@ def login_page(request):
             login(request,user)
             return redirect('/home') 
         else:
-            return redirect('/') 
-    return render(request, 'login.html' )
+            context={'success':True}
+    return render(request, 'login.html',context)
 
 
 def task_del(request,id):
