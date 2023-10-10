@@ -48,7 +48,7 @@ def register(request):
         unique_name = User.objects.filter(username=username)
         if unique_name:
             
-            context={'success':True}
+            context={'success1':True,'success2':False}
             return render(request, 'register.html',context) 
             
         myuser = User.objects.create_user(first_name=first_name,username=username,password=password)
@@ -57,7 +57,8 @@ def register(request):
         
         
     
-    return render(request, 'register.html') 
+    context={'success1':False,'success2':True}
+    return render(request, 'register.html',context) 
     
 
   # return HttpResponse("This is my home page")
