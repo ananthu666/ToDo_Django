@@ -50,14 +50,15 @@ def register(request):
             
             context={'success1':True,'success2':False}
             return render(request, 'register.html',context) 
-            
-        myuser = User.objects.create_user(first_name=first_name,username=username,password=password)
-        myuser.set_password(password)
-        myuser.save()
+        else:    
+            myuser = User.objects.create_user(first_name=first_name,username=username,password=password)
+            myuser.set_password(password)
+            myuser.save()
+            context={'success1':False,'success2':True}
+            return render(request, 'register.html',context) 
         
         
-    
-    context={'success1':False,'success2':True}
+    context={'success1':False,'success2':False}
     return render(request, 'register.html',context) 
     
 
